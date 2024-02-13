@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audiotxt</title>
+    <style>
+      /* Common styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      .header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        margin: -180px;
+      }
+
+      li {
+        display: flex;
+        justify-content: center;
+        margin: 10px; /* Added margin to buttons */
+      }
+
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      a:hover {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      /* Specific styles */
+      .para {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 4px;
+        text-align: center;
+      }
+
+      .para p {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>MAVY - GROUP 16</h1>
+    </div>
+    <div class="content">
+      <div id="headd">
+        <h1>Welcome to Audiotxt!</h1>
+      </div>
+      <div class="para">
+        <p>
+          This project was made for the PYTHON end semester examination. There
+          are two sections PDF Translator and Speech Translator.
+        </p>
+        <p>
+          1. PDF Translator converts an English PDF document to a Hindi text
+          document.
+        </p>
+        <p>
+          2. Speech Translator translates the audio of the user in real-time and
+          saves it in an audio file.
+        </p>
+        <p>Click the buttons below to access our projects</p>
+      </div>
+      <h2>Choose an Application:</h2>
+
+      <ul>
+        <li><a href="/pdf_translator">PDF Translator</a></li>
+        <li><a href="/speech_translator">Speech to Speech Translator</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

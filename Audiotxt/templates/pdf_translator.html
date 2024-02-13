@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Translator(English to Hindi)</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      input[type="text"],
+      select,
+      input[type="number"] {
+        width: calc(100% - 10px);
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      div {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 4px;
+      }
+
+      p {
+        margin: 0;
+        text-align: center;
+      }
+
+      a {
+        display: block;
+        width: 150px; /* Set width as desired */
+        margin: 10px auto; /* Center the buttons */
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 4px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      a:hover {
+        background-color: #0056b3;
+      }
+      .dowl {
+        display: flex;
+      }
+      label.sel {
+        margin-top: -15px;
+      }
+      .dowl form {
+        flex: 1; 
+        margin: 0 5px; 
+      }
+      
+      .dowl {
+        display: flex;
+        justify-content: space-between; 
+        margin-top: 10px; 
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    <h1>PDF Translator(English to Hindi)</h1>
+    <form action="/pdf_translator" method="POST">
+      <label for="pdf_file">Enter the path of the PDF file You want to Translate:</label>
+      <input
+        type="text"
+        id="pdf_file"
+        name="pdf_file"
+        placeholder="Only Path (No Quotation Marks)"
+        required
+      /><br /><br />
+      <label for="translation_type" class="sel">Select Translation Type</label>
+      <select id="translation_type" name="translation_type">
+        <option value="A">Translate the entire PDF</option>
+        <option value="P">Translate a specific page</option>
+      </select>
+      <input
+        type="number"
+        name="num"
+        id="num"
+        placeholder="Enter any page number(only one)"
+        min="0"
+
+      />
+      <input type="submit" value="Translate" />
+    </form>
+    <h1>Translated Text</h1>
+    <div>
+      <p>{{pdftxt}}</p>
+    </div>
+    <h1>Download the Document</h1>
+    <p>Click the link below to download the document:</p>
+    <div class="dowl">
+      <form action="/download_pdf" method="POST">
+        <label for="pdfname">Enter the PDF Name <br>(Just the File Name)</label>
+        <input type="text" name="pdfname" id="pdfname" placeholder="Only the Translated Files.">
+        <!-- <a href="/download_pdf">Download Translated Text</a><br /> -->
+        <input type="submit" value="Download Translated Text">
+      </form>
+      <form action="/download_audpdf" method="POST">
+        <label for="pdfname">Enter the PDF Name <br>(Just the File Name)</label>
+        <input type="text" name="pdfname" id="pdfname" placeholder="Only the Translated Files">
+        <!-- <a href="/download_audpdf">Download Translated Audio</a> -->
+        <input type="submit" value="Download Translated Audio">
+      </form>
+    </div>
+    <script>
+      const numInput = document.getElementById("num");
+      
+      numInput.addEventListener("input", function() {
+        if (this.value < 0) {
+          this.value = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
